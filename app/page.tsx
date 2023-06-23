@@ -1,7 +1,5 @@
 import Link from 'next/link'
-import { getLocations } from '@/utils/getLocations'
 
-import { siteConfig } from '@/config/site'
 import {
   Accordion,
   AccordionContent,
@@ -10,11 +8,7 @@ import {
 } from '@/components/ui/accordion'
 import { Button, buttonVariants } from '@/components/ui/button'
 
-import Dashboard from './dashboard'
-
 export default async function IndexPage() {
-  const locationsMap = await getLocations()
-
   return (
     <>
       <section>
@@ -24,16 +18,13 @@ export default async function IndexPage() {
               NYC Near Real Time location specific Air Quality Index (AQI) data
             </h2>
             <p className="mb-6 max-w-2xl md:text-md lg:mb-8 lg:text-lg">
-              General average air quality readings provided by weather apps are
-              typically calculated based on data from a few monitoring stations
-              located in a particular area. These readings may not accurately
-              represent the air quality at a specific location within that area.
-              On the other hand, real-time location-specific readings are
-              obtained from sensors placed in close proximity to the monitored
-              area, providing a more precise assessment of the air quality at
-              that particular location. This accuracy is crucial for individuals
-              who want to make informed decisions regarding their immediate
-              environment.
+              {' '}
+              The website provides up-to-date Air Quality Index (AQI) data for
+              specific locations in New York City in near real time, offering
+              users valuable information about the air quality in their
+              vicinity. Users can access the site to stay informed about the
+              current air quality conditions and make informed decisions
+              regarding their outdoor activities and health.
             </p>
 
             <Accordion type="single" collapsible className="w-full">
@@ -41,15 +32,29 @@ export default async function IndexPage() {
                 <AccordionTrigger>
                   Why is it better than weather app AQI readings?
                 </AccordionTrigger>
-                <AccordionContent>
-                  Yes. It adheres to the WAI-ARIA design pattern.
+                <AccordionContent className="max-w-lg">
+                  General air quality readings provided by weather apps are
+                  typically calculated based on data from a few monitoring
+                  stations and the overall number is an average. Furthermore,
+                  weather apps attempt to guess the dispresions of pollutants
+                  based on meteorgological data. These readings may not
+                  accurately represent the air quality at a specific location
+                  within that area.
+                  <br />
+                  <br />
+                  Real-time location-specific readings are obtained from sensors
+                  placed in close proximity to the monitored area, providing a
+                  more precise assessment of the air quality at that particular
+                  location. This accuracy is crucial for individuals who want to
+                  make informed decisions regarding their immediate environment.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
-                <AccordionTrigger>Is it styled?</AccordionTrigger>
-                <AccordionContent>
-                  Yes. It comes with default styles that matches the other
-                  components' aesthetic.
+                <AccordionTrigger>Who is this for?</AccordionTrigger>
+                <AccordionContent className="max-w-lg">
+                  This is for all New Yorkers who want to stay informed about
+                  the air quality in their vicinity. Right now I have data for
+                  Manhattan, Brooklyn, Queens, and the Bronx.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-3">
@@ -58,19 +63,25 @@ export default async function IndexPage() {
                   NYC.gov continuously collects data on key pollutants, such as
                   particulate matter (PM2.5 and PM10), nitrogen dioxide (NO2),
                   ozone (O3), carbon monoxide (CO), and sulfur dioxide (SO2). I
-                  pull data from the same source but instead of providing an
-                  average of the air quality levels I give you the most recent
-                  readings from the sensors.
+                  pull data from the same street level sensors that are used to
+                  generate the{' '}
+                  <Link
+                    className="link font-bold"
+                    href="https://a816-dohbesp.nyc.gov/IndicatorPublic/beta/key-topics/airquality/nyccas/"
+                  >
+                    NYC Community Air Survey{' '}
+                  </Link>{' '}
+                  but instead of providing an average of the air quality levels
+                  I give you the most recent readings from the sensors.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
 
-            <Button>Try Now</Button>
+            <Button>
+              <Link href="/dashboard"> Try Now </Link>
+            </Button>
           </div>
         </div>
-      </section>
-      <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-        <Dashboard locationsMap={locationsMap} />
       </section>
     </>
   )
