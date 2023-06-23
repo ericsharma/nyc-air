@@ -15,10 +15,7 @@ export async function getLocations() {
 
   if (!source) throw new Error('DATA_SOURCE not set')
 
-  const res = await fetch(
-    source + endpoint,
-    { next: { revalidate: 3600 } } // refetch data every hour
-  )
+  const res = await fetch(source + endpoint, { cache: 'no-store' })
   if (!res.ok) throw new Error(res.statusText)
 
   const data = await res.text()
