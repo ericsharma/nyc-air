@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import LibertySvg from '@/public/liberty.svg'
 import {
+  BookOpen,
   LucideProps,
   Moon,
   SunMedium,
@@ -13,7 +14,7 @@ export type Icon = LucideIcon
 export const Icons = {
   sun: SunMedium,
   moon: Moon,
-  twitter: Twitter,
+  twitter: BookOpen,
   logo: (props: LucideProps) => (
     <Image
       className=" md:block max-w-[100px] max-h-[80px]"

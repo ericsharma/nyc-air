@@ -36,7 +36,7 @@ export default async function IndexPage() {
                   General air quality readings provided by weather apps are
                   typically calculated based on data from a few monitoring
                   stations and the overall number is an average. Furthermore,
-                  weather apps attempt to guess the dispresions of pollutants
+                  weather apps attempt to guess the dispersion of pollutants
                   based on meteorgological data. These readings may not
                   accurately represent the air quality at a specific location
                   within that area.
