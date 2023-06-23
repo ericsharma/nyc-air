@@ -19,12 +19,12 @@ export default async function IndexPage() {
             </h2>
             <p className="mb-6 max-w-2xl md:text-md lg:mb-8 lg:text-lg">
               {' '}
-              The website provides up-to-date Air Quality Index (AQI) data for
-              specific locations in New York City in near real time, offering
-              users valuable information about the air quality in their
-              vicinity. Users can access the site to stay informed about the
-              current air quality conditions and make informed decisions
-              regarding their outdoor activities and health.
+              The goal of this website is to provide up-to-date Air Quality
+              Index (AQI) data for specific locations in New York City in near
+              real time, offering users valuable information about the air
+              quality in their vicinity. Users can access the site to stay
+              informed about the current air quality conditions and make
+              informed decisions regarding their outdoor activities and health.
             </p>
 
             <Accordion type="single" collapsible className="w-full">
