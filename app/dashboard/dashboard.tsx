@@ -41,7 +41,7 @@ export default function Dashboard({ locationsMap }: { locationsMap: any }) {
     const lastItem = [...locationsMap[location]].pop()
 
     const latestLocationData = //The latest data will either be the first or last item in the array depending on the time stamp
-      firstItem.timeStamp > lastItem.timeStamp ? firstItem : lastItem
+      firstItem.timestamp > lastItem.timestamp ? firstItem : lastItem
 
     setLatestData(latestLocationData)
   }, [location])
