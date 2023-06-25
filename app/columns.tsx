@@ -24,8 +24,6 @@ export const columns: ColumnDef<AQIDatum>[] = [
   {
     accessorKey: 'timestamp',
     header: ({ column }) => {
-      console.log('hit')
-      console.log(column.getIsSorted())
       return (
         <Button
           variant="ghost"

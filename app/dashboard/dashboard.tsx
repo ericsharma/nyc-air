@@ -37,7 +37,11 @@ export default function Dashboard({ locationsMap }: { locationsMap: any }) {
 
   useEffect(() => {
     if (!Object.keys(locationsMap).includes(location)) return
-    const latestLocationData = [...locationsMap[location]].pop() //copy array before mutating
+    const firstItem = locationsMap[location][0]
+    const lastItem = [...locationsMap[location]].pop()
+
+    const latestLocationData = //The latest data will either be the first or last item in the array depending on the time stamp
+      firstItem.timeStamp > lastItem.timeStamp ? firstItem : lastItem
 
     setLatestData(latestLocationData)
   }, [location])
